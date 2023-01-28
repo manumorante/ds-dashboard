@@ -1,5 +1,5 @@
 import { paths } from 'config'
-import { readThisFile, getFolders, getImportsFrom, getUseCases, saveJSON } from 'scripts'
+import { readThisFile, getFolders, getImportsFrom, getUseCases, saveJSON, isLocal } from 'scripts'
 
 // Esta página crea el archivo output.json con la información de los imports de cada componente
 
@@ -38,15 +38,16 @@ function getImportsInFolder(path) {
 }
 
 export default function Page() {
+  if (!isLocal()) return <div className='Page'>Only for local</div>
+
   const data = {
     DS: getImportsInFolder(paths.ds),
     UI: getImportsInFolder(paths.ui),
     SPA: getImportsInFolder(paths.spa),
   }
-  
+
   saveJSON('data.json', data)
 
-  
   return (
     <div className='Page'>
       <h1 className='font-extrabold text-2xl'>Data creada</h1>

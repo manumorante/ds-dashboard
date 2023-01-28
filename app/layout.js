@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
+// UI components from https://tailwindui.com/components/marketing/sections/heroes
+
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -13,7 +15,6 @@ const navigation = [
 ]
 
 import 'styles/globals.css'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function RootLayout({ children }) {
@@ -53,14 +54,14 @@ export default function RootLayout({ children }) {
           <div className='px-6 pt-6 lg:px-8'>
             <nav className='flex items-center justify-between' aria-label='Global'>
               <div className='flex lg:flex-1'>
-                <a href='#' className='-m-1.5 p-1.5'>
-                  <span className='sr-only'>Your Company</span>
+                <Link href='/' className='-m-1.5 p-1.5'>
+                  <span className='sr-only'>DSD</span>
                   <img
                     className='h-8'
                     src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
                     alt=''
                   />
-                </a>
+                </Link>
               </div>
               <div className='flex lg:hidden'>
                 <button
