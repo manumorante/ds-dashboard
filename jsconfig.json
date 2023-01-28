@@ -6,6 +6,6 @@
       "@/*": ["ui/*"]
     }
   },
-  "include": ["**/*.js", "**/*.jsx"],
+  "include": ["**/*.js", "**/*.jsx", "scripts/create.js"],
   "exclude": ["node_modules"]
 }

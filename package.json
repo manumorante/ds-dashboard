@@ -1,12 +1,13 @@
 {
-  "name": "nextjs-react-tailwind",
+  "name": "ds-dashboard",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "show": "node scripts/show.js",
+    "create": "node scripts/create.mjs"
   },
   "dependencies": {
     "next": "13.0.0",
