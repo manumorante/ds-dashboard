@@ -1,86 +1,65 @@
-import { checkDataFile, readDataFile } from 'scripts'
+import Link from 'next/link'
 
-export default function Page() {
-  if (!checkDataFile())
-    return (
-      <div>
-        <a href='/create'>Create data file</a>
-      </div>
-    )
-
-  const data = readDataFile()
-  const keysDS = Object.keys(data.DS)
-  const keysUI = Object.keys(data.UI)
-  const keysSPA = Object.keys(data.SPA)
-
+export default function Example() {
   return (
-    <div className='Page'>
-      <h1 className='font-extrabold text-2xl mb-6'>DS dashboard</h1>
-
-      <div className='flex gap-6 wrap'>
-        <div>
-          <h2 className='font-extrabold text-xl'>DS</h2>
-          {keysDS.map((key) => {
-            const localImports = data.DS[key].localImports || []
-
-            return (
-              <div key={key}>
-                <p className='font-bold my-4'>{key}</p>
-
-                {localImports.map((localImport) => {
-                  return (
-                    <div key={localImport}>
-                      <p className='ml-4'>{localImport}</p>
-                    </div>
-                  )
-                })}
-              </div>
-            )
-          })}
+    <>
+      <div className='mx-auto max-w-2xl py-32 sm:py-48 lg:py-56'>
+        <div className='hidden sm:mb-8 sm:flex sm:justify-center'>
+          <div className='relative rounded-full py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
+            Ver datos directamente en{' '}
+            <Link
+              target='_blank'
+              href='https://jsonhero.io/j/4rhrMeBrrswh'
+              className='font-semibold text-indigo-600'>
+              <span className='absolute inset-0' aria-hidden='true' />
+              jsonhero.io <span aria-hidden='true'>&rarr;</span>
+            </Link>
+          </div>
         </div>
-
-        <div>
-          <h2 className='font-extrabold text-xl'>UI</h2>
-
-          {keysUI.map((key) => {
-            const dsImports = data.UI[key].dsImports || []
-
-            return (
-              <div key={key}>
-                <p className='font-bold my-4'>{key}</p>
-
-                {dsImports.map((dsImport) => {
-                  return (
-                    <div key={dsImport}>
-                      <p className='ml-4'>{dsImport}</p>
-                    </div>
-                  )
-                })}
-              </div>
-            )
-          })}
-        </div>
-
-        <div>
-          <h2 className='font-extrabold text-xl'>SPA</h2>
-          {keysSPA.map((key) => {
-            const useCases = data.SPA[key].useCases || []
-            return (
-              <div key={key}>
-                <p className='font-bold my-4'>{key}</p>
-
-                {useCases.map((useCase) => {
-                  return (
-                    <div key={useCase}>
-                      <p className='ml-4'>{useCase}</p>
-                    </div>
-                  )
-                })}
-              </div>
-            )
-          })}
+        <div className='text-center'>
+          <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
+            Todos los componentes y sus relacinoes
+          </h1>
+          <p className='mt-6 text-lg leading-8 text-gray-600'>
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat
+            commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+          </p>
+          <div className='mt-10 flex items-center justify-center gap-x-6'>
+            <Link
+              href='/start'
+              className='rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
+              Get started
+            </Link>
+            <Link href='/create' className='text-base font-semibold leading-7 text-gray-900'>
+              Create data <span aria-hidden='true'>→</span>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+      <div className='absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]'>
+        <svg
+          className='relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]'
+          viewBox='0 0 1155 678'
+          xmlns='http://www.w3.org/2000/svg'>
+          <path
+            fill='url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)'
+            fillOpacity='.3'
+            d='M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z'
+          />
+          <defs>
+            <linearGradient
+              id='ecb5b0c9-546c-4772-8c71-4d3f06d544bc'
+              x1='1155.49'
+              x2='-78.208'
+              y1='.177'
+              y2='474.645'
+              gradientUnits='userSpaceOnUse'>
+              <stop stopColor='#9089FC' />
+              <stop offset={1} stopColor='#FF80B5' />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </>
   )
 }
