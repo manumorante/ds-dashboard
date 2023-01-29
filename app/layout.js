@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
     <html>
       <head>
         <title>DS Dashboard</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
       </head>
       <body>
         <div className='isolate bg-white'>
